@@ -254,8 +254,8 @@ resource "kubernetes_cluster_role_binding" "user" {
 
   subject {
     kind      = "ServiceAccount"
-    name      = "560796003934-compute"
-    api_group = "rbac.authorization.k8s.io"
+    name      = "deployer"
+    api_group = ""
   }
 
   subject {
