@@ -228,18 +228,18 @@ module "vpc_network" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 # configure kubectl with the credentials of the GKE cluster
-resource "null_resource" "configure_kubectl" {
-  provisioner "local-exec" {
-    command = "gcloud beta container clusters get-credentials ${module.gke_cluster.name} --region ${var.location} --project ${var.project}"
-
-    # Use environment variables to allow custom kubectl config paths
-    environment = {
-      KUBECONFIG = var.kubectl_config_path != "" ? var.kubectl_config_path : ""
-    }
-  }
-
-  depends_on = [google_container_node_pool.node_pool]
-}
+# resource "null_resource" "configure_kubectl" {
+#  provisioner "local-exec" {
+#    command = "gcloud beta container clusters get-credentials ${module.gke_cluster.name} --region ${var.location} --project ${var.project}"
+#
+#    # Use environment variables to allow custom kubectl config paths
+#    environment = {
+#      KUBECONFIG = var.kubectl_config_path != "" ? var.kubectl_config_path : ""
+#    }
+#  }
+#
+#  depends_on = [google_container_node_pool.node_pool]
+#}
 
 resource "kubernetes_cluster_role_binding" "user" {
   metadata {
