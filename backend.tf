@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket  = "lab-gitops-terraform-state"
+    bucket  = "lab-zenika-gitops-terraform-state"
     prefix  = "terraform/state"
   }
 }
